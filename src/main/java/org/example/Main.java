@@ -11,9 +11,8 @@ import java.awt.*;
 public class Main {
     JFrame mainWindow = new JFrame("Dino");
 
-    public static int WIDTH = 800;
-    public static int HEIGHT = 500;
-
+    public static int width = 800;
+    public static int height = 500;
 
     public void createAndShowU() {
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +24,6 @@ public class Main {
         container.setLayout(new BorderLayout());
         container.add(gamePanel,BorderLayout.CENTER);
 
-
         mainWindow.setSize(WIDTH,HEIGHT);
         mainWindow.setResizable(false);
         mainWindow.setVisible(true);
@@ -35,16 +33,8 @@ public class Main {
         Ground ground = new Ground(HEIGHT);
         gamePanel.setObstacleIntervalAndSpeed(300,10);
 
-
-
     }
-    public static void main(String[] args){
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Main().createAndShowU();
-            }
-        });
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Main().createGameAndShow());
     }
-
 }
